@@ -3,6 +3,7 @@ import numpy as np
 from io import BytesIO
 from PIL import Image
 import tensorflow as tf
+import os
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -45,6 +46,8 @@ async def predict(file: UploadFile = File(...)):
     }
 
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="localhost", port=8000)
 
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))  # Use Render's port if available
+    uvicorn.run(app, host="0.0.0.0", port=port)
