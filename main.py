@@ -1,4 +1,5 @@
 from fastapi import FastAPI, File, UploadFile
+import uvicorn
 import numpy as np
 from io import BytesIO
 from PIL import Image
@@ -48,6 +49,9 @@ async def predict(file: UploadFile = File(...)):
 
 
 
+
+
+
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 10000))  # Use Render's port if available
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
