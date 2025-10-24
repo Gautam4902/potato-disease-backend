@@ -11,7 +11,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost:3000",
-    "https://your-frontend.vercel.app"  # update after deploy
+    "https://potato-disease-frontend-x3gn.vercel.app"  # update after deploy
 ]
 
 app.add_middleware(
